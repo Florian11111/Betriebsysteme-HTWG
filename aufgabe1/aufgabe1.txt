@@ -1,0 +1,52 @@
+1.
+    python2 ./process-run.py -l 5:100,5:100
+        Als erstes werden alle 5 befehle von process-0 ausgeführt dann alle 5 von 
+        process-1. dadurch ergibt sich eine cpu zeit von 100% (da kein io befehl dabei ist).
+
+    python2 ./process-run.py -l 5:100,5:100 -c -p
+
+
+2. 
+    python2 ./process-run.py -l 4:100,1:0
+        Es laufen die 4 normalen prozesse ab dann wird io gesartet der 
+        standartmässig noch 5 ticks braucht, das ergibt 10 insgesammt.
+    
+    python2 ./process-run.py -l 4:100,1:0 -c -p
+    
+
+3.
+    python2 ./process-run.py -l 1:0,4:100
+        Durch das tauschen der stelle wird der io zuersst ausgeführt. Dadurch kann die 
+        cpu wärenddessen arbeiten und muss nicht wärend dem io warten dadurch braucht es nur noch
+        6 "ticks" statt 10
+
+    python2 ./process-run.py -l 1:0,4:100 -c -p
+    
+
+4. 
+    python2 ./process-run.py -l 1:0,4:100 -c -S SWITCH_ON_END
+        Durch "SWITCH_ON_END" wird nicht bei einem bei io nicht gewechselt was in diesem 
+        beispiel sehr uneffizent ist das die cpu nun warten muss bis die io fertig ist.
+
+
+5. 
+    python2 ./process-run.py -l 1:0,4:100 -c -S SWITCH_ON_IO
+        Jetzt wird sobalt eine io kommt zur cpu geschalltet was wieder effizent ist.
+
+    python2 ./process-run.py -l 1:0,4:100 -c -S SWITCH_ON_IO  -c -p
+
+
+6.
+    python2 ./process-run.py ./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH_ON_IO -I IO_RUN_LATER -c -p
+        In diesem beispiel werden die Recorcen sehr uneffizent genutz. Zwar arbeitet die cpu
+        wärend der ersten io aber die anderen 2 ios werdne ohne gleichzeite cpu arbeit ausgeführt
+        was sehr uneffizent ist.
+
+
+7.
+    python2 ./process-run.py ./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH_ON_IO -I IO_RUN_IMMEDIATE -c -p
+        Da die io anfrage direkt bearbeitet werden läuft wärend jeder io gleichzeitig eine cpu was den process viel
+        effizenter macht.
+
+8.
+    TODO:
