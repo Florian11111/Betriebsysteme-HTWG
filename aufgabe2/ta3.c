@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
         printf("%s\n", "hello");
         write(pipefd[1], &warte, sizeof(warte));
     } else {
+        // der code wartet hier bis etwas in die pipline geschrieben wird
         read(pipefd[0], &warte, sizeof(warte));
         printf("%s\n", "goodbye");
     }
