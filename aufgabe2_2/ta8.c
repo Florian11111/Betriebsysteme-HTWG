@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     if (pipe(pipefd) != 0) {
         exit(1);
     }
-
+    
     pid_t pid = fork();
     if (pid == -1) { 
         perror("fork\n");

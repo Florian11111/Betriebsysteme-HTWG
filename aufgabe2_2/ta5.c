@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     } else if (rc == 0) {
         printf("hello, I am child (pid:%d)\n", (int) getpid());
         int test2 = wait(NULL);
-        printf("wait im child process: %d\n", test2);
+        printf("wait in child process: %d\n", test2);
     } else {
         // wait returnd die processid vom Kind process
         int wc = wait(NULL);
