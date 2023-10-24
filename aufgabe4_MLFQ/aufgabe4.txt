@@ -1,0 +1,26 @@
+1.
+    python2 mlfq.py -M 0 -m 100 -c
+
+2. 
+    Figure 8.1:
+        python2 ./mlfq.py --jlist 0,9,0:8,5,0:12,1,0:12,1,0 -n 8 -q 1 -c
+    
+    Figure 8.2:
+        python2 ./mlfq.py --jlist 0,200,0 -n 3 -q 10 -c
+
+    Figure 8.3:
+        python2 ./mlfq.py --jlist 0,180,0;100,20,0 -n 3 -q 10 -c
+        &
+        python2 ./mlfq.py --jlist 0,180,0:100,20,1 -n 3 -q 10 --iotime=4 -S -c
+
+    Figure 8.4:
+        python2 ./mlfq.py --jlist 0,101,0:100,20,1:100,20,1 -n 3 -q 10 --iotime=5 -S -c
+
+3.
+    with only one QUEUE
+
+4.
+    python2 ./mlfq.py --jlist 0,10,0:0,100,1 -i 0 -S -q 2 -c
+
+6.
+    placement in welche queue

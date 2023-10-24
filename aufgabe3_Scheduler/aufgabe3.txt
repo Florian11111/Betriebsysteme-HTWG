@@ -46,7 +46,6 @@ RR => Round Robin
 
         Average -- Response: 1.00  Turnaround 465.67  Wait 265.67
 
-
 4.
     Wenn die aufgaben nach größe (von kleinestem zu größten) sortiert kommen.
 
