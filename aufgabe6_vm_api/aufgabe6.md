@@ -28,7 +28,7 @@ Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 ### 5. Write a program that creates an array of integers called data of size 100 using malloc; then, set data[100] to zero. What happens when you run this program? What happens when you run this program using valgrind? Is the program correct?
 
 - ./data => das programm wird normal ausgeführt
-- valgrind ./data => findet auch nichts
+- valgrind ./data
 - Es schreibt einfach ausßerhalb von dem bereicht was ihmn gehört
 
 ### 6. Create a program that allocates an array of integers (as above), frees them, and then tries to print the value of one of the elements of the array. Does the program run? What happens when you use valgrind on it?
@@ -39,3 +39,37 @@ Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 
 - ./freeOhneGrund => free(): invalid pointer Aborted
 - valgrind ./freeOhneGrund
+
+### 8.  Try out some of the other interfaces to memory allocation. For example, create a simple vector-like data structure and related routines that use realloc() to manage the vector. Use an array to store the vectors elements; when a user adds an entry to the vector, use realloc() to allocate more space for it. How well does such a vector perform? How does it compare to a linked list? Use valgrind to help you find bugs.
+
+~/betriebsystem/homework/aufgabe6_vm_api$ time ./vector 300000
+insgesamt: 300000000 Intiger werte!
+real    0m4,235s
+user    0m3,744s
+sys     0m0,492s
+
+bsys@86127022ab6b:~/betriebsystem/homework/aufgabe6_vm_api$ time ./vector-Vergrleich 300000
+insgesamt: 300000000 Intiger werte!
+real    0m1,095s
+user    0m1,094s
+sys     0m0,001s
+
+bsys@86127022ab6b:~/betriebsystem/homework/aufgabe6_vm_api$ time ./vector-Vergrleich 3000000
+insgesamt: 3000000000 Intiger werte!
+real    0m10,717s
+user    0m10,708s
+sys     0m0,010s
+
+bsys@86127022ab6b:~/betriebsystem/homework/aufgabe6_vm_api$ time ./vector 3000000
+Killed
+
+real    0m36,772s
+user    0m26,919s
+sys     0m9,604s
+
+bsys@86127022ab6b:~/betriebsystem/homework/aufgabe6_vm_api$ time ./vector 1000000
+
+insgesamt: 1000000000 Intiger werte!
+real    0m13,885s
+user    0m11,831s
+sys     0m2,053s

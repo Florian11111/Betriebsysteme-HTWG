@@ -3,8 +3,8 @@
 
 int main() {
     int* data = (int*)malloc(100 * sizeof(int));
-    data[0] = 99;
+    data[0] = 0;
     free(data);
-    printf("%d\n", data[0]);
+    printf("%x\n", data[0]);
     return 0;
 }

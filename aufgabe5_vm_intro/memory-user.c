@@ -7,6 +7,7 @@ int main(int argc, char *argv[]) {
         printf("Bitte 2 argumente!\n");
         return 1;
     }
+
     printf("process ID: %d\n", getpid());
     int i = atoi(argv[1]);
     int anzahlDurchlaufe = atoi(argv[2]);
@@ -34,6 +35,6 @@ int main(int argc, char *argv[]) {
         }
     }
     free(arr);
-
+    printf("\n");
     return 0;
 }
