@@ -21,3 +21,4 @@
         "Error: physical memory size must be GREATER than address space size (for this simulation)" => for this Simulation???
     python2 paging-linear-translate.py -P 32 -a 32 -p 1024 -v -s 1
         => Gibt halt nur eine Page
+    python2 paging-linear-translate.py -P 33 -a 32 -p 1024 -v -s 1
