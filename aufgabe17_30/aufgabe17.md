@@ -35,4 +35,4 @@
 ## 11. Finally, examine main-two-cvs-while-extra-unlock.c. What problem arises when you release the lock before doing a put or a get?  Can you reliably cause such a problem to happen, given the sleep strings? What bad thing can happen?
     - Wenn man das lock zu früh aufmacht kann ein anderer thread den inhalt bearbeiten und es kommt zu einem fehler.
     - Man kann in dem code keine einfachen fehler auslösen Wenn man bei c4 anhält.
-    - 2 producer schreiben gleichzeitig in daten oder ein Consumer list leere daten :(
+    - 2 producer schreiben gleichzeitig in daten oder ein Consumer list leere daten
